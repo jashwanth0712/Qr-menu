@@ -1,0 +1,57 @@
+
+img{
+    width: 25%;
+    height: min-content;
+    border-radius: 18%;
+    box-shadow: 4px 4px 2px #aaaaaa;
+    margin-right: 15px;
+}
+.horizontal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card{
+    display: flex;
+    margin-bottom: 5px;
+}
+.details{
+    width: 100%;
+}
+.card h5{
+    padding: 0;
+    margin:10px 0 0;
+}
+.card h4{
+    margin: 0;
+}
+.card p{
+   font-size: xx-small; 
+   padding: 0;
+   margin: 0;
+   color: #aaaaaa;
+}
+.quantity_changer{
+    display: flex;
+    justify-items:right;
+    padding-right: 5%;
+}
+.quantity_changer button{
+    margin: 5px;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    background-color: #703ACF;
+    border-radius: 20%;
+    font-size: medium;
+    color: white;
+    font-weight: 500;
+    border: 0;
+}
+
+.quantity_changer h4,i,button{
+    margin: 0;
+    justify-content: center;
+    align-self: center;
+}
