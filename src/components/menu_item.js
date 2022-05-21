@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import './menu_items.css';
+import Menu from "../menu.json";
+
 const MenuItem = (props)=>{
     const [quantity,changequantity] = useState(0);
-    useState(()=>{props.item.quantity=quantity;})
+    useState(()=>{props.item.quantity=quantity;
+        console.log("props is "+props.item.id)});
+        Menu[props.item.id].quantity=quantity;
     return(
 <div className="card">
     <img src={props.item.image}></img>

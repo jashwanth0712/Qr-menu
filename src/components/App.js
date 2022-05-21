@@ -2,7 +2,7 @@ import  React, { useState }  from 'react';
 import SearchInput from './Searchinput';
 import MenuItem from './menu_item';
 import CartItem from './cart_item';
-import menu from "../menu.json";
+import Menu from "../menu.json";
 const data1={
   name:"chicken biryani",
   cost:100,
@@ -27,21 +27,31 @@ const data2={
   serves:"serves 1-2"
 }
 const App =()=>{
+  
   return(
     <div className='ui container' style={{marginTop:'30px'}}>
         <SearchInput />
         <div>
           {
-            menu.map(item=>{
+            Menu.map(category=>{
               return(
-                <MenuItem item={item} />
+                <div>
+                  <h1>{category.category}</h1>
+                  {
+                    category.items.map(item =>{
+                      return(
+                        <div>
+                          <MenuItem item={item} />
+                        </div>
+                      )
+                    })
+                  }
+                  </div>
               )
             })
           }
-        <h1>Cart</h1>
-        <CartItem item={data1}/>
-        <CartItem item={data1}/>
-        <CartItem item={data2}/>
+        
+        <button onClick={()=>{console.log(Menu);}}>see</button>
         </div>
     </div>
 
