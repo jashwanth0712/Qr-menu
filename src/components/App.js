@@ -1,7 +1,8 @@
-import  React  from 'react';
+import  React, { useState }  from 'react';
 import SearchInput from './Searchinput';
 import MenuItem from './menu_item';
 import CartItem from './cart_item';
+import menu from "../menu.json";
 const data1={
   name:"chicken biryani",
   cost:100,
@@ -27,17 +28,16 @@ const data2={
 }
 const App =()=>{
   return(
-    <div className='ui container' style={
-        {
-            marginTop:'30px'
-        }
-    }>
+    <div className='ui container' style={{marginTop:'30px'}}>
         <SearchInput />
         <div>
-          
-        <MenuItem item={data1}/>
-        <MenuItem item={data2}/>
-        <MenuItem item={data1}/>
+          {
+            menu.map(item=>{
+              return(
+                <MenuItem item={item} />
+              )
+            })
+          }
         <h1>Cart</h1>
         <CartItem item={data1}/>
         <CartItem item={data1}/>
