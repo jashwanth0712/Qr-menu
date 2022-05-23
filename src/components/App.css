@@ -1,0 +1,16 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    background-color: blueviolet;
+    margin: 0;
+    padding: 10px;
+}
+.header h3{
+    color: white;
+    font-size: x-large;
+}
+.header img{
+    height: 8vw;
+    color: blueviolet;
+}
