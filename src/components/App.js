@@ -6,8 +6,11 @@ import axios from "axios";
 import cart_image from "./bag.png"
 import { Player } from '@lottiefiles/react-lottie-player';
 import './App.css'
+import Cart from './cart';
 const App =()=>{
   return(
+    <Cart/>
+/*
     <div >
 
       <div className='header'> 
@@ -44,14 +47,15 @@ const App =()=>{
           autoplay
           loop
           src="https://assets6.lottiefiles.com/packages/lf20_fq7ktikb.json"
-          style={{ height: '400px', width: '400px',justifySelf:'center' }}>
+          style={{width: '100%',justifySelf:'center' }}>
         </Player>
         }
 
         
     </div>
 
-  )
-}
+*/
+    )
+  }
 
 export default App;

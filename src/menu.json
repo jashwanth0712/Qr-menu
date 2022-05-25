@@ -12,16 +12,16 @@
                     "name":"chicken biryani",
                     "cost" :100,
                     "description" :"delicious and must try chicken biryani",
-                    "quantity" : 0,
+                    "quantity" : 1,
                     "discount" :0,
                     "is_available" :false,
                     "category" :"biryani",
-                    "type ":"non_veg",
+                    "veg_or_not":"non_veg",
                     "image" :"https://biryanigurucom.files.wordpress.com/2018/03/chicken-biryani.jpg?w=2560",
                     "serves" :"serves 1-2"
                   },
                   {
-                    "id":0,
+                    "id":1,
                     "name":"mutton biryani",
                     "cost" :300,
                     "description" :"delicious and must try chicken biryani",
@@ -29,7 +29,7 @@
                     "discount" :0,
                     "is_available" :true,
                     "category" :"biryani",
-                    "type ":"non_veg",
+                    "veg_or_not":"non_veg",
                     "image" :"https://biryanigurucom.files.wordpress.com/2018/03/chicken-biryani.jpg?w=2560",
                     "serves" :"serves 1-2"
                   }
@@ -40,15 +40,28 @@
             "items":
             [
                 {
-                    "id":1,
+                    "id":2,
                     "name":" chicken kebab",
                     "cost" :120,
+                    "description" :"delicious and must try chicken biryani",
+                    "quantity" : 2,
+                    "discount" :0,
+                    "is_available" :true,
+                    "category" :"kebab",
+                    "veg_or_not":"non_veg",
+                    "image" :"https://th.bing.com/th/id/OIP.xFtSW7uUQlZYzgpEe7EL-QHaHa?pid=ImgDet&rs=1",
+                    "serves" :"serves 1-2"
+                  },
+                  {
+                    "id":3,
+                    "name":" veg kebab",
+                    "cost" :50,
                     "description" :"delicious and must try chicken biryani",
                     "quantity" : 0,
                     "discount" :0,
                     "is_available" :true,
                     "category" :"kebab",
-                    "type ":"non_veg",
+                    "veg_or_not":"veg",
                     "image" :"https://th.bing.com/th/id/OIP.xFtSW7uUQlZYzgpEe7EL-QHaHa?pid=ImgDet&rs=1",
                     "serves" :"serves 1-2"
                   }
