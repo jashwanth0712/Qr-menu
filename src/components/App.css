@@ -2,15 +2,23 @@
     display: flex;
     justify-content: space-between;
     align-self: center;
-    background-color: blueviolet;
+    background-color: white;
     margin: 0;
     padding: 10px;
 }
 .header h3{
-    color: white;
+    color: blueviolet;
     font-size: x-large;
 }
 .header img{
     height: 8vw;
-    color: blueviolet;
+}
+.header a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11vw;
+    width: 11vw;
+    background-color: blueviolet;
+    border-radius: 50%;
 }

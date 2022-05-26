@@ -9,13 +9,19 @@ import './App.css'
 import Cart from './cart';
 const App =()=>{
   return(
-    <Cart/>
-/*
+   // <Cart/>
+
     <div >
+
 
       <div className='header'> 
       <h3>{Menu.restaurant_name}</h3>
-      <a href='#'><img src={cart_image} alt="cart"></img></a>
+      <Player
+      autoplay
+      loop
+          src="https://assets3.lottiefiles.com/private_files/lf30_ex6xbay5.json"
+          style={{width: '10vw',padding:'0',margin:'0',justifySelf:'center' }}>
+        </Player>
       </div>
         <SearchInput />
         {
@@ -54,7 +60,6 @@ const App =()=>{
         
     </div>
 
-*/
     )
   }
 
