@@ -1,13 +1,31 @@
 import React, { useState } from "react";
 import './menu_items.css';
-import Menu from "../menu.json";
 import veg_icon from "../components/veg.png";
 import nonveg_icon from "../components/non_veg.png";
+import { Player } from '@lottiefiles/react-lottie-player';
+const result = localStorage.getItem("menu");
+let Menu= JSON.parse(result);
+
 const MenuItem = (props)=>{
-    const [quantity,changequantity] = useState(0);
+    console.log("parsed menu is ",Menu.menu);
+    localStorage.setItem('menu',JSON.stringify(Menu));
+    console.log("updated the data");
+    const [quantity,changequantity] = useState(props.item.quantity);
     useState(()=>{
         props.item.quantity=quantity;
-        console.log("props is "+props.item.id)
+        Menu.menu.map(category =>{
+            category.items.map(dish =>{
+                if(dish.id===props.item.id)
+                    {
+                    dish.quantity=quantity;
+                    localStorage.setItem('menu',JSON.stringify(Menu));
+                    //console.log(dish);
+                    }
+                })
+            })
+        console.log("usestate menu is : "+JSON.stringify(Menu.menu[0]))
+        console.log("Set")
+
     });
         //----------------------------updating the quantity of the dish------------------
     Menu.menu.map(category =>{
@@ -15,10 +33,11 @@ const MenuItem = (props)=>{
             if(dish.id===props.item.id)
                 {
                 dish.quantity=quantity;
-                console.log(dish);
+                //console.log(dish);
                 }
             })
         })
+    
     return(
 <div className="card">
 {props.item.is_available?
@@ -41,8 +60,24 @@ const MenuItem = (props)=>{
         <p>{props.item.description}</p>
         {props.item.is_available?
                 <div className="horizontal">
+                    {props.item.discount==0?
                 <h4>₹{props.item.cost}</h4>
+            :
+            <div className="discount">
+                <strike><h4 className="striked" >₹{props.item.cost}</h4></strike>
+              <div className="s" style={{display:"flex"}}>
+                    
+            <h4 className="g " style={{color:"green"}}>₹{props.item.cost *(1- props.item.discount/100)}  </h4>
+            <Player
+          autoplay
+          loop
+          src="https://assets9.lottiefiles.com/packages/lf20_FM9Hwb.json"
+          style={{width: '100%',justifySelf:'center' }}>
+        </Player>
+              </div>
+            </div>}
                 <div className="quantity_changer">
+    
                 <button onClick={()=>{if(quantity>=1){changequantity(quantity -1);console.log("decremented");}}}><i>-</i></button>  
                 <h4>{quantity}</h4>
                 <button onClick={()=>{console.log("incremented");changequantity(quantity +1);}}><i>+</i></button>

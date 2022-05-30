@@ -1,66 +1,32 @@
-import  React  from 'react';
-import SearchInput from './Searchinput';
-import MenuItem from './menu_item';
-import Menu from "../menu.json";
+import  React, { useReducer }  from 'react';
 import axios from "axios";
-import cart_image from "./bag.png"
-import { Player } from '@lottiefiles/react-lottie-player';
+import Menu_page from './menu_page';
+import Menu from '../menu.json';
 import './App.css'
+import Error_page  from './error_page';
 import Cart from './cart';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 const App =()=>{
+  //console.log("app .js ran  " +localStorage.getItem('menu'));
+
+  if(localStorage.getItem('menu'))
+  {
+    localStorage.setItem('menu',JSON.stringify(Menu));
+  }
   return(
-   // <Cart/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Menu_page />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<Error_page/>} />
 
-    <div >
-
-
-      <div className='header'> 
-      <h3>{Menu.restaurant_name}</h3>
-      <Player
-      autoplay
-      loop
-          src="https://assets3.lottiefiles.com/private_files/lf30_ex6xbay5.json"
-          style={{width: '10vw',padding:'0',margin:'0',justifySelf:'center' }}>
-        </Player>
-      </div>
-        <SearchInput />
-        {
-          Menu.taking_orders?
-          <div>
-          {
-            Menu.menu.map(category=>{
-              return(
-                <div>
-                  <h1>{category.category}</h1>
-                  {
-                    category.items.map(item =>{
-                      return(
-                        <div>
-                          <MenuItem item={item} />
-                        </div>
-                      )
-                    })
-                  }
-                  </div>
-              )
-            })
-          }
-        
-        <button onClick={()=>{console.log(Menu);}}>see</button>
-        </div>
-          :
-          <Player
-          autoplay
-          loop
-          src="https://assets6.lottiefiles.com/packages/lf20_fq7ktikb.json"
-          style={{width: '100%',justifySelf:'center' }}>
-        </Player>
-        }
-
-        
-    </div>
-
+      </Routes>
+    </Router>
+   
+    //<Cart/>
+//    <Menu_page/>
     )
   }
+
 
 export default App;

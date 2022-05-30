@@ -1,12 +1,11 @@
 import React,{useState} from "react";
 import './cart_item.css';
-import Menu from "../menu.json";
-
+const Menu=JSON.parse( localStorage.getItem('menu'));
 const CartItem =(props)=>{
     const [quantity,changequantity] = useState(props.item.quantity);
     useState(()=>{
         props.item.quantity=quantity;
-        console.log("props is "+props.item.quantity)
+
     });
         //----------------------------updating the quantity of the dish------------------
     Menu.menu.map(category =>{
@@ -18,6 +17,8 @@ const CartItem =(props)=>{
                 }
             })
         })
+        console.log(JSON.stringify(Menu));
+    // localStorage.setItem('menu',Menu);
     return(
         
         <div className="horizontal ">

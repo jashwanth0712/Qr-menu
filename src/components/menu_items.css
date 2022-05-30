@@ -52,6 +52,12 @@
     color: white;
     font-weight: 500;
     border: 0;
+
+}
+.striked{
+    font-weight: 50;
+    color: #aaaaaa;
+    font-size: smaller;
 }
 .quantity_changer h4,i,button{
     margin: 0;

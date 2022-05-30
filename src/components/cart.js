@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Menu from "../menu.json";
-import MenuItem from "./menu_item";
+import Menujson from "../menu.json";
 import CartItem  from "./cart_item";
 import './cart_item.css';
 import { Player } from '@lottiefiles/react-lottie-player';
-
+const result=localStorage.getItem('menu');
+const Menu =JSON.parse(result);
 let total=0;
     const cart_list=[];
     for( let i=0;i<Menu.menu.length;i++ )
@@ -32,9 +32,11 @@ const Cart  =(props)=>{
     return(
       <div>
         <div className="cart_header">
+            <a href="/">
             <div className="backbutton"  >
             <i class="angle big left icon" ></i>
             </div>
+            </a>
         <h1>Cart</h1>
         </div>
           
