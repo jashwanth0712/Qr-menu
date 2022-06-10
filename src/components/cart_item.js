@@ -31,7 +31,7 @@ const CartItem =(props)=>{
                             <button onClick={()=>{console.log("incremented");changequantity(quantity +1);props.onChange(1)}}><i>+</i></button>
             </div>
             </div>
-            <div class="grid-item" style={{width:'50px'}}>₹{props.item.cost * props.item.quantity}</div>  
+            <div class="grid-item" style={{width:'50px'}}>₹{props.item.cost*(1-props.item.discount/100)*quantity}</div>  
             </div>
             
         </div>

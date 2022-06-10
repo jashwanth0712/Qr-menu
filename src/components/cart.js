@@ -15,7 +15,7 @@ let total=0;
       {
           //console.log(Menu.menu[i].items[j]);
           let present_item=Menu.menu[i].items[j];
-          total+=present_item.cost*present_item.quantity;
+          total+=present_item.cost*present_item.quantity*(1-present_item.discount/100);
           if(present_item.quantity!==0)
           {
               cart_list.push(present_item);
@@ -58,7 +58,7 @@ const Cart  =(props)=>{
                     <div>
                         {
                             item.quantity>0?
-                            <CartItem item={item} onChange={value =>{update_total(current_total+value*item.cost);
+                            <CartItem item={item} onChange={value =>{update_total(current_total+value*item.cost*(1-item.discount/100));
                                 if(item.quantity==1 &&value==-1){console.log(cart_list.indexOf(item));console.log("spliced" )}}} />
                             :
                             <div></div>
