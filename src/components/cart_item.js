@@ -26,9 +26,39 @@ const CartItem =(props)=>{
             <div class="grid-item" style={{width:'80px'}}>{props.item.name}</div>
             <div class="grid-item">
             <div className="quantity_changer">
-                            <button onClick={()=>{if(quantity>=1){changequantity(quantity -1);console.log("decremented"); props.onChange(-1)} }}><i>-</i></button>  
+                            <button onClick={()=>{
+                                if(quantity>=1){
+                                changequantity(quantity -1);
+                                console.log("decremented");
+                                props.onChange(-1);
+                                Menu.menu.map(category =>{
+                                    category.items.map(dish =>{
+                                        if(dish.id===props.item.id)
+                                            {
+                                            dish.quantity--;
+                                            localStorage.setItem('menu',JSON.stringify(Menu));
+                                            console.log(dish.name+" has been altered , and updated quanitty is "+dish.quantity);
+                                            }
+                                        })
+                                    })
+
+                                 } }}><i>-</i></button>  
                             <h4>{quantity}</h4>
-                            <button onClick={()=>{console.log("incremented");changequantity(quantity +1);props.onChange(1)}}><i>+</i></button>
+                            <button onClick={()=>{
+                                console.log("incremented");
+                                changequantity(quantity +1);
+                                props.onChange(1)
+                                Menu.menu.map(category =>{
+                                    category.items.map(dish =>{
+                                        if(dish.id===props.item.id)
+                                            {
+                                            dish.quantity++;
+                                            localStorage.setItem('menu',JSON.stringify(Menu));
+                                            console.log(dish.name+" has been altered , and updated quanitty is "+dish.quantity);
+                                            }
+                                        })
+                                    })
+                                }}><i>+</i></button>
             </div>
             </div>
             <div class="grid-item" style={{width:'50px'}}>₹{props.item.cost*(1-props.item.discount/100)*quantity}</div>  

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Menujson from "../menu.json";
 import CartItem  from "./cart_item";
 import './cart_item.css';
 import { Player } from '@lottiefiles/react-lottie-player';
@@ -58,8 +57,16 @@ const Cart  =(props)=>{
                     <div>
                         {
                             item.quantity>0?
-                            <CartItem item={item} onChange={value =>{update_total(current_total+value*item.cost*(1-item.discount/100));
-                                if(item.quantity==1 &&value==-1){console.log(cart_list.indexOf(item));console.log("spliced" )}}} />
+                            <CartItem item={item} 
+                            onChange={value =>
+                                {
+                                update_total(current_total+value*item.cost*(1-item.discount/100));
+                               
+                                if(item.quantity==1 &&value==-1)
+                                {
+                                    console.log(cart_list.indexOf(item));console.log("spliced" )
+                                }
+                                }} />
                             :
                             <div></div>
                         }
