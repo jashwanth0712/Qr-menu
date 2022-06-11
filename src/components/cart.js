@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import CartItem  from "./cart_item";
+import Menujson from '../menu.json';
+
 import './cart_item.css';
 import { Player } from '@lottiefiles/react-lottie-player';
+
 const result=localStorage.getItem('menu');
+if(!result)
+{
+    localStorage.setItem('menu',JSON.stringify(Menujson));   
+}
+console.log("cart ran and menu is "+result);
 const Menu =JSON.parse(result);
 let total=0;
     const cart_list=[];

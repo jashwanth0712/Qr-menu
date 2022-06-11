@@ -8,7 +8,8 @@ import Cart from './cart';
 import Admin from './admin';
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 const App =()=>{
-  //console.log("app .js ran  " +localStorage.getItem('menu'));
+  console.log("app .js ran  " );
+  console.log("app .js ran  " +localStorage.getItem('menu'));
 
   if(!localStorage.getItem('menu'))
   {

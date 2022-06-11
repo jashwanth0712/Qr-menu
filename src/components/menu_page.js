@@ -3,7 +3,9 @@ import SearchInput from './Searchinput';
 import Menujson from '../menu.json'
 import MenuItem from './menu_item';
 import { Player } from '@lottiefiles/react-lottie-player';
-
+fetch(`https://menu-dummy.herokuapp.com/`)
+.then((response)=>response.json())
+.then((Menujson));
 const Menu_page= (props)=>{
   const [Menu,dispatch]=useReducer(Menujson,[],()=>{
     const localData =localStorage.getItem('menu');
@@ -48,6 +50,10 @@ const Menu_page= (props)=>{
           })
         }
       <button onClick={()=>{console.log(Menu);}}>see</button>
+      <button onClick={()=>{
+
+        }}>fetch</button>
+      
       </div>
         :
         <Player
